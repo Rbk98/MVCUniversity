@@ -1,6 +1,5 @@
 using System;
 using Microsoft.EntityFrameworkCore;
-using MvcUniversity.Models;
 
 public class MvcUniversityContext : DbContext
 {

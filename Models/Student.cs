@@ -1,22 +1,18 @@
 using System;
 using System.Collections.Generic;
 
-namespace MvcUniversity
+public class Student
 {
 
-    public class Student
+    public int Id { get; set; }
+    public string LastName { get; set; }
+    public string FirstName { get; set; }
+    public DateTime EnrollmentDate { get; set; }
+    public List<Enrollment> Enrollments { get; set; }
+
+    public override string ToString()
     {
 
-        public int Id { get; set; }
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public DateTime EnrollmentDate { get; set; }
-        public List<Enrollment> Enrollments { get; set; }
-
-        public override string ToString()
-        {
-
-            return "Id: " + Id + " LastName: " + LastName + " FirstName: " + FirstName;
-        }
+        return "Id: " + Id + " LastName: " + LastName + " FirstName: " + FirstName;
     }
 }

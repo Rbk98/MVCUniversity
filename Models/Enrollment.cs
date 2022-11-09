@@ -1,28 +1,24 @@
 using System;
 using System.Collections.Generic;
 
-namespace MvcUniversity
+public enum Grade
 {
+    A, B, C, D, F
+}
 
-    public enum Grade
+public class Enrollment
+{
+    public int Id { get; set; }
+
+    public Grade? Grade { get; set; }
+    public int StudentId { get; set; }
+    public int CourseId { get; set; }
+    public Student Student { get; set; }
+    public Course Course { get; set; }
+
+    public override string ToString()
     {
-        A, B, C, D, F
+        return "Course Id: " + Id;
     }
 
-    public class Enrollment
-    {
-        public int Id { get; set; }
-
-        public Grade? Grade { get; set; }
-        public int StudentId { get; set; }
-        public int CourseId { get; set; }
-        public Student Student { get; set; }
-        public Course Course { get; set; }
-
-        public override string ToString()
-        {
-            return "Course Id: " + Id;
-        }
-
-    }
 }
