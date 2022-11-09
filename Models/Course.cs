@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace EFUniversity
+namespace MvcUniversity
 {
     public class Course
     {
