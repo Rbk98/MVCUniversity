@@ -8,12 +8,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MvcUniversity.Controllers;
 
-public class StudentsController : Controller
+public class StudentController : Controller
 {
     private readonly MvcUniversityContext _context;
 
 
-    public StudentsController(MvcUniversityContext context)
+    public StudentController(MvcUniversityContext context)
     {
         _context = context;
     }
@@ -24,7 +24,7 @@ public class StudentsController : Controller
         return View(students);
     }
 
-    public async Task<IActionResult> Students(int? id)
+    public async Task<IActionResult> Details(int? id)
     {
         if (id == null)
         {
