@@ -1,0 +1,40 @@
+@model IEnumerable<Student>
+
+@{
+    ViewData["Title"] = "Students - MvcUniversity";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Students</h1>
+    <table class="table">
+        <tr>
+            <th>
+                Last Name
+            </th>
+            <th>
+                First Name
+            </th>
+            <th> 
+                EnrollmentDate               
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EnrollmentDate)
+                </td>
+                <td>
+                    <a asp-action="#" asp-route-id="@item.Id">Details</a>
+                </td>
+            </tr>
+        }
+</table>
+</div>

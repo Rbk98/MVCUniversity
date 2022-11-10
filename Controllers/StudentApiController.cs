@@ -16,7 +16,8 @@ public class StudentApiController : ControllerBase
     public async Task<ActionResult<IEnumerable<Student>>> getStudents()
     {
         Console.WriteLine("list all");
-        return await _context.Students.ToListAsync();
+
+        return await _context.Students.OrderBy(e => e.FirstName).ToListAsync();
     }
 
     // GET: api/StudentApi/
