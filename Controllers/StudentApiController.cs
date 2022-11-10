@@ -25,7 +25,14 @@ public class StudentApiController : ControllerBase
     public async Task<ActionResult<Student>> getStudent(int id)
     {
         Console.WriteLine("list one");
-        var student = await _context.Students.FindAsync(id);
+
+        //TODO: faire jointure pour récupérer les données des Enrollments
+        var student = await _context.Students.Where(s => s.Id == id)
+                .Include(s => s.Enrollments)
+                .ThenInclude(e => e.Course)
+                .SingleOrDefaultAsync();
+        // Soit récupère une seule valeur ou envoie la valeur par défaut si 
+        // l'identification ne correspond à rien dans la base de données
 
         if (student == null)
         {
