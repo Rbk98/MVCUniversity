@@ -8,21 +8,35 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MvcUniversity.Controllers;
 
-public class StudentController : Controller
+public class StudentsController : Controller
 {
     private readonly MvcUniversityContext _context;
 
 
-    public StudentController(MvcUniversityContext context)
+    public StudentsController(MvcUniversityContext context)
     {
         _context = context;
     }
-    // GET: Students
+
     public async Task<IActionResult> Index()
     {
         var students = await _context.Students.ToListAsync();
         return View(students);
     }
 
+    public async Task<IActionResult> Students(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+        var student = await _context.Students
+        .FirstOrDefaultAsync(s => s.Id == id);
+        if (student == null)
+        {
+            return NotFound();
+        }
 
+        return View(student);
+    }
 }

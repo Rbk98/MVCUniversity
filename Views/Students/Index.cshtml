@@ -9,13 +9,13 @@
     <table class="table">
         <tr>
             <th>
-                Last Name
+                @Html.DisplayNameFor(model => model.LastName)
             </th>
             <th>
-                First Name
+                @Html.DisplayNameFor(model => model.FirstName)
             </th>
-            <th> 
-                EnrollmentDate               
+            <th>
+                @Html.DisplayNameFor(model => model.EnrollmentDate)
             </th>
             <th></th>
         </tr>
@@ -32,9 +32,9 @@
                     @Html.DisplayFor(modelItem => item.EnrollmentDate)
                 </td>
                 <td>
-                    <a asp-action="#" asp-route-id="@item.Id">Details</a>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
                 </td>
             </tr>
         }
-</table>
+    </table>
 </div>
